@@ -6,7 +6,7 @@ window.title("My program")
 window.geometry("500x500")
 window.configure(background='#f7f5dd')
 
-INACTIVITY_TIMEOUT = 4  # Seconds of inactivity before deleting text
+INACTIVITY_TIMEOUT = 4  
 last_edit_time = None
 running = False
 
@@ -24,10 +24,10 @@ def update_timer():
             last_edit_time = time.time()
             input_label.edit_modified(False)
             
-        # Check if enough time has passed since last edit
+        
         if time.time() - last_edit_time >= INACTIVITY_TIMEOUT:
             input_label.delete("1.0", END)
-            running = False  # Stop the timer after deleting
+            running = False  
         else:
             window.after(100, update_timer)
 
